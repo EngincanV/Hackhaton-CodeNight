@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+ 
+
+<div class="container urunDetay">
+    <div class="container urun-container">
+        <div class="row">
+            <div class="col-6 col-md-4" style="margin-top:0px;border-right: 1px solid #e2e2e2;">
+
+                <img src="~/Content/Images/1.png" class="img-responsive rounded float-left" style="margin:auto;" alt="...">
+                <div><div id="like" statu="0"></div></div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="container">
+                    <div class="urunAciklama"><b>Ürün Açıklaması:</b> Çelik Yelek</div>
+                    <div class="urunAciklama"><b>Ürün Açıklaması:</b> Çelesik Yelek</div>
+                    <div class="urunAciklama"><b>Ürün Açıklaması:</b> Çelik Yelek</div>
+                    <div class="urunAciklama"><b>Ürün Açıklaması:</b> Çelik Yelek</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid" style="margin-top:25px;">
+        <div class="row">
+            <div class="col-6 col-md-4" style="margin-top:0px;border-right: 1px solid #e2e2e2;">
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="container">
+                    <div class="urunAciklama"><b>Ürün Sahibi Adı Soyadı:</b> Çelik Yelek</div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $("#like").on("click", function () {
+
+        $('#like').animate({ opacity: 0 }, 'fast', function () {
+
+            if ($('#like').attr("statu") == "0") {
+                $('#like').attr("statu", "1");
+                $(this).css({ 'background-image': 'url(/Content/Icons/liked.png)' }).animate({ opacity: 1 });
+            } else {
+                $('#like').attr("statu", "0");
+                $(this).css({ 'background-image': 'url(/Content/Icons/unliked.png)' }).animate({ opacity: 1 });
+            }
+
+
+        });
+    });
+    $(document).ready(function () {
+        initialize();
+    });
+
+</script>
+ 

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HackhathonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_Begeniler">
+    <Key>
+      <PropertyRef Name="begeniId" />
+    </Key>
+    <Property Name="begeniId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="urunId" Type="Int32" />
+    <Property Name="uyeId" Type="Int32" />
+    <NavigationProperty Name="tbl_Uyeler" Relationship="Self.FK_Begeniler_tbl_Uyeler" FromRole="tbl_Begeniler" ToRole="tbl_Uyeler" />
+    <NavigationProperty Name="tbl_Urunler" Relationship="Self.FK_Begeniler_Urunler" FromRole="tbl_Begeniler" ToRole="tbl_Urunler" />
+  </EntityType>
+  <EntityType Name="tbl_Mesaj">
+    <Key>
+      <PropertyRef Name="mesajId" />
+    </Key>
+    <Property Name="mesajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mesajTxt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="aliciId" Type="Int32" Nullable="false" />
+    <Property Name="gondericiId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Uyeler" Relationship="Self.FK_tbl_Mesaj_tbl_Uyeler" FromRole="tbl_Mesaj" ToRole="tbl_Uyeler" />
+    <NavigationProperty Name="tbl_Uyeler1" Relationship="Self.FK_tbl_Mesaj_tbl_Uyeler1" FromRole="tbl_Mesaj" ToRole="tbl_Uyeler" />
+  </EntityType>
+  <EntityType Name="tbl_UrunFotograflarİ">
+    <Key>
+      <PropertyRef Name="fotografId" />
+    </Key>
+    <Property Name="fotografId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fotografAd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="urunId" Type="Int32" />
+    <NavigationProperty Name="tbl_Urunler" Relationship="Self.FK_fotograflar_Urunler" FromRole="tbl_UrunFotograflarİ" ToRole="tbl_Urunler" />
+  </EntityType>
+  <EntityType Name="tbl_Urunler">
+    <Key>
+      <PropertyRef Name="urunId" />
+    </Key>
+    <Property Name="urunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="urunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tipId" Type="Int32" />
+    <Property Name="uyeId" Type="Int32" />
+    <Property Name="urunDurumu" Type="Boolean" />
+    <Property Name="eklenmeTarihi" Type="DateTime" Precision="0" />
+    <Property Name="fiyat" Type="Decimal" Precision="5" Scale="1" />
+    <Property Name="aktifMi" Type="Boolean" />
+    <NavigationProperty Name="tbl_Begeniler" Relationship="Self.FK_Begeniler_Urunler" FromRole="tbl_Urunler" ToRole="tbl_Begeniler" />
+    <NavigationProperty Name="tbl_UrunFotograflarİ" Relationship="Self.FK_fotograflar_Urunler" FromRole="tbl_Urunler" ToRole="tbl_UrunFotograflarİ" />
+    <NavigationProperty Name="tbl_UrunTipi" Relationship="Self.FK_Urunler_tbl_UrunTipi" FromRole="tbl_Urunler" ToRole="tbl_UrunTipi" />
+  </EntityType>
+  <EntityType Name="tbl_UrunTipi">
+    <Key>
+      <PropertyRef Name="tipId" />
+    </Key>
+    <Property Name="tipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_Urunler" Relationship="Self.FK_Urunler_tbl_UrunTipi" FromRole="tbl_UrunTipi" ToRole="tbl_Urunler" />
+  </EntityType>
+  <EntityType Name="tbl_Uyeler">
+    <Key>
+      <PropertyRef Name="uyeID" />
+    </Key>
+    <Property Name="uyeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DogumTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="enlem" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="boylam" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_Begeniler" Relationship="Self.FK_Begeniler_tbl_Uyeler" FromRole="tbl_Uyeler" ToRole="tbl_Begeniler" />
+    <NavigationProperty Name="tbl_Mesaj" Relationship="Self.FK_tbl_Mesaj_tbl_Uyeler" FromRole="tbl_Uyeler" ToRole="tbl_Mesaj" />
+    <NavigationProperty Name="tbl_Mesaj1" Relationship="Self.FK_tbl_Mesaj_tbl_Uyeler1" FromRole="tbl_Uyeler" ToRole="tbl_Mesaj" />
+  </EntityType>
+  <Association Name="FK_Begeniler_tbl_Uyeler">
+    <End Role="tbl_Uyeler" Type="Self.tbl_Uyeler" Multiplicity="0..1" />
+    <End Role="tbl_Begeniler" Type="Self.tbl_Begeniler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Uyeler">
+        <PropertyRef Name="uyeID" />
+      </Principal>
+      <Dependent Role="tbl_Begeniler">
+        <PropertyRef Name="uyeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Begeniler_Urunler">
+    <End Role="tbl_Urunler" Type="Self.tbl_Urunler" Multiplicity="0..1" />
+    <End Role="tbl_Begeniler" Type="Self.tbl_Begeniler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Urunler">
+        <PropertyRef Name="urunId" />
+      </Principal>
+      <Dependent Role="tbl_Begeniler">
+        <PropertyRef Name="urunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Mesaj_tbl_Uyeler">
+    <End Role="tbl_Uyeler" Type="Self.tbl_Uyeler" Multiplicity="1" />
+    <End Role="tbl_Mesaj" Type="Self.tbl_Mesaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Uyeler">
+        <PropertyRef Name="uyeID" />
+      </Principal>
+      <Dependent Role="tbl_Mesaj">
+        <PropertyRef Name="aliciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Mesaj_tbl_Uyeler1">
+    <End Role="tbl_Uyeler" Type="Self.tbl_Uyeler" Multiplicity="1" />
+    <End Role="tbl_Mesaj" Type="Self.tbl_Mesaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Uyeler">
+        <PropertyRef Name="uyeID" />
+      </Principal>
+      <Dependent Role="tbl_Mesaj">
+        <PropertyRef Name="gondericiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fotograflar_Urunler">
+    <End Role="tbl_Urunler" Type="Self.tbl_Urunler" Multiplicity="0..1" />
+    <End Role="tbl_UrunFotograflarİ" Type="Self.tbl_UrunFotograflarİ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Urunler">
+        <PropertyRef Name="urunId" />
+      </Principal>
+      <Dependent Role="tbl_UrunFotograflarİ">
+        <PropertyRef Name="urunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_tbl_UrunTipi">
+    <End Role="tbl_UrunTipi" Type="Self.tbl_UrunTipi" Multiplicity="0..1" />
+    <End Role="tbl_Urunler" Type="Self.tbl_Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UrunTipi">
+        <PropertyRef Name="tipId" />
+      </Principal>
+      <Dependent Role="tbl_Urunler">
+        <PropertyRef Name="tipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HackhathonEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Begeniler" EntityType="Self.tbl_Begeniler" />
+    <EntitySet Name="tbl_Mesaj" EntityType="Self.tbl_Mesaj" />
+    <EntitySet Name="tbl_UrunFotograflarİ" EntityType="Self.tbl_UrunFotograflarİ" />
+    <EntitySet Name="tbl_Urunler" EntityType="Self.tbl_Urunler" />
+    <EntitySet Name="tbl_UrunTipi" EntityType="Self.tbl_UrunTipi" />
+    <EntitySet Name="tbl_Uyeler" EntityType="Self.tbl_Uyeler" />
+    <AssociationSet Name="FK_Begeniler_tbl_Uyeler" Association="Self.FK_Begeniler_tbl_Uyeler">
+      <End Role="tbl_Uyeler" EntitySet="tbl_Uyeler" />
+      <End Role="tbl_Begeniler" EntitySet="tbl_Begeniler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Begeniler_Urunler" Association="Self.FK_Begeniler_Urunler">
+      <End Role="tbl_Urunler" EntitySet="tbl_Urunler" />
+      <End Role="tbl_Begeniler" EntitySet="tbl_Begeniler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Mesaj_tbl_Uyeler" Association="Self.FK_tbl_Mesaj_tbl_Uyeler">
+      <End Role="tbl_Uyeler" EntitySet="tbl_Uyeler" />
+      <End Role="tbl_Mesaj" EntitySet="tbl_Mesaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Mesaj_tbl_Uyeler1" Association="Self.FK_tbl_Mesaj_tbl_Uyeler1">
+      <End Role="tbl_Uyeler" EntitySet="tbl_Uyeler" />
+      <End Role="tbl_Mesaj" EntitySet="tbl_Mesaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fotograflar_Urunler" Association="Self.FK_fotograflar_Urunler">
+      <End Role="tbl_Urunler" EntitySet="tbl_Urunler" />
+      <End Role="tbl_UrunFotograflarİ" EntitySet="tbl_UrunFotograflarİ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_tbl_UrunTipi" Association="Self.FK_Urunler_tbl_UrunTipi">
+      <End Role="tbl_UrunTipi" EntitySet="tbl_UrunTipi" />
+      <End Role="tbl_Urunler" EntitySet="tbl_Urunler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

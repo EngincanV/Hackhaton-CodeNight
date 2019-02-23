@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HackhathonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Begeniler">
+    <Key>
+      <PropertyRef Name="begeniId" />
+    </Key>
+    <Property Name="begeniId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urunId" Type="int" />
+    <Property Name="uyeId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Mesaj">
+    <Key>
+      <PropertyRef Name="mesajId" />
+    </Key>
+    <Property Name="mesajId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mesajTxt" Type="ntext" />
+    <Property Name="aliciId" Type="int" Nullable="false" />
+    <Property Name="gondericiId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_UrunFotograflarİ">
+    <Key>
+      <PropertyRef Name="fotografId" />
+    </Key>
+    <Property Name="fotografId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fotografAd" Type="nvarchar" MaxLength="20" />
+    <Property Name="urunId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Urunler">
+    <Key>
+      <PropertyRef Name="urunId" />
+    </Key>
+    <Property Name="urunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urunAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipId" Type="int" />
+    <Property Name="uyeId" Type="int" />
+    <Property Name="urunDurumu" Type="bit" />
+    <Property Name="eklenmeTarihi" Type="date" />
+    <Property Name="fiyat" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="aktifMi" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_UrunTipi">
+    <Key>
+      <PropertyRef Name="tipId" />
+    </Key>
+    <Property Name="tipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Uyeler">
+    <Key>
+      <PropertyRef Name="uyeID" />
+    </Key>
+    <Property Name="uyeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="20" />
+    <Property Name="DogumTarihi" Type="date" Nullable="false" />
+    <Property Name="enlem" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="boylam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Begeniler_tbl_Uyeler">
+    <End Role="tbl_Uyeler" Type="Self.tbl_Uyeler" Multiplicity="0..1" />
+    <End Role="tbl_Begeniler" Type="Self.tbl_Begeniler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Uyeler">
+        <PropertyRef Name="uyeID" />
+      </Principal>
+      <Dependent Role="tbl_Begeniler">
+        <PropertyRef Name="uyeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Begeniler_Urunler">
+    <End Role="tbl_Urunler" Type="Self.tbl_Urunler" Multiplicity="0..1" />
+    <End Role="tbl_Begeniler" Type="Self.tbl_Begeniler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Urunler">
+        <PropertyRef Name="urunId" />
+      </Principal>
+      <Dependent Role="tbl_Begeniler">
+        <PropertyRef Name="urunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fotograflar_Urunler">
+    <End Role="tbl_Urunler" Type="Self.tbl_Urunler" Multiplicity="0..1" />
+    <End Role="tbl_UrunFotograflarİ" Type="Self.tbl_UrunFotograflarİ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Urunler">
+        <PropertyRef Name="urunId" />
+      </Principal>
+      <Dependent Role="tbl_UrunFotograflarİ">
+        <PropertyRef Name="urunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Mesaj_tbl_Uyeler">
+    <End Role="tbl_Uyeler" Type="Self.tbl_Uyeler" Multiplicity="1" />
+    <End Role="tbl_Mesaj" Type="Self.tbl_Mesaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Uyeler">
+        <PropertyRef Name="uyeID" />
+      </Principal>
+      <Dependent Role="tbl_Mesaj">
+        <PropertyRef Name="aliciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Mesaj_tbl_Uyeler1">
+    <End Role="tbl_Uyeler" Type="Self.tbl_Uyeler" Multiplicity="1" />
+    <End Role="tbl_Mesaj" Type="Self.tbl_Mesaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Uyeler">
+        <PropertyRef Name="uyeID" />
+      </Principal>
+      <Dependent Role="tbl_Mesaj">
+        <PropertyRef Name="gondericiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_tbl_UrunTipi">
+    <End Role="tbl_UrunTipi" Type="Self.tbl_UrunTipi" Multiplicity="0..1" />
+    <End Role="tbl_Urunler" Type="Self.tbl_Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UrunTipi">
+        <PropertyRef Name="tipId" />
+      </Principal>
+      <Dependent Role="tbl_Urunler">
+        <PropertyRef Name="tipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HackhathonModelStoreContainer">
+    <EntitySet Name="tbl_Begeniler" EntityType="Self.tbl_Begeniler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Mesaj" EntityType="Self.tbl_Mesaj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UrunFotograflarİ" EntityType="Self.tbl_UrunFotograflarİ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Urunler" EntityType="Self.tbl_Urunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UrunTipi" EntityType="Self.tbl_UrunTipi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Uyeler" EntityType="Self.tbl_Uyeler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Begeniler_tbl_Uyeler" Association="Self.FK_Begeniler_tbl_Uyeler">
+      <End Role="tbl_Uyeler" EntitySet="tbl_Uyeler" />
+      <End Role="tbl_Begeniler" EntitySet="tbl_Begeniler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Begeniler_Urunler" Association="Self.FK_Begeniler_Urunler">
+      <End Role="tbl_Urunler" EntitySet="tbl_Urunler" />
+      <End Role="tbl_Begeniler" EntitySet="tbl_Begeniler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fotograflar_Urunler" Association="Self.FK_fotograflar_Urunler">
+      <End Role="tbl_Urunler" EntitySet="tbl_Urunler" />
+      <End Role="tbl_UrunFotograflarİ" EntitySet="tbl_UrunFotograflarİ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Mesaj_tbl_Uyeler" Association="Self.FK_tbl_Mesaj_tbl_Uyeler">
+      <End Role="tbl_Uyeler" EntitySet="tbl_Uyeler" />
+      <End Role="tbl_Mesaj" EntitySet="tbl_Mesaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Mesaj_tbl_Uyeler1" Association="Self.FK_tbl_Mesaj_tbl_Uyeler1">
+      <End Role="tbl_Uyeler" EntitySet="tbl_Uyeler" />
+      <End Role="tbl_Mesaj" EntitySet="tbl_Mesaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_tbl_UrunTipi" Association="Self.FK_Urunler_tbl_UrunTipi">
+      <End Role="tbl_UrunTipi" EntitySet="tbl_UrunTipi" />
+      <End Role="tbl_Urunler" EntitySet="tbl_Urunler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

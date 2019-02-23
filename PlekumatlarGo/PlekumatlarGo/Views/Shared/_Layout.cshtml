@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="display:none;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Plekumat Go", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" id="ust-panel">
+                    <div style="position:relative;">
+                        <div id="ic-sayfa-panel">
+                            <div class="shiny-btn" id="harita"></div>
+                            <div class="shiny-btn"></div>
+                            <div class="shiny-btn"></div>
+                            <div class="shiny-btn" onclick="location.href='/Home';" id="home"></div>
+
+                        </div>
+                        <div id="baslik" class="text-center">
+                            Binlerce ürün, <b>Al</b> & <b>Sat</b><br />
+                            <p style="font-size:15px;">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
+                        </div>
+                        <img src="~/Content/BannerImages/banner_static_3.svg" id="bannerResim1" />
+                        <img src="~/Content/BannerImages/banner_static_4.svg" id="bannerResim2" />
+                        <img src="~/Content/BannerImages/banner_static_6.svg" id="bannerResim3" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        @RenderBody()
+        <hr />
+
+    </div>
+    <footer>
+        <div style="height:150px;background-color:rgb(70, 70, 70);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-xs-12">1</div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">1</div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">1</div>
+                    <div class="col-lg-3 col-md-3 col-xs-12">1</div>
+                </div>
+            </div>
+        </div>
+                
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

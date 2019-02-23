@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b7bdd666f1a462eb4209752cf35a13b" Name="Diagram1">
+        <EntityTypeShape EntityType="HackhathonModel.tbl_Begeniler" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HackhathonModel.tbl_Mesaj" Width="1.5" PointX="4.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HackhathonModel.tbl_UrunFotograflarİ" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HackhathonModel.tbl_Urunler" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HackhathonModel.tbl_UrunTipi" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HackhathonModel.tbl_Uyeler" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="HackhathonModel.FK_Begeniler_tbl_Uyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="HackhathonModel.FK_Begeniler_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="HackhathonModel.FK_tbl_Mesaj_tbl_Uyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="HackhathonModel.FK_tbl_Mesaj_tbl_Uyeler1" ManuallyRouted="false" />
+        <AssociationConnector Association="HackhathonModel.FK_fotograflar_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="HackhathonModel.FK_Urunler_tbl_UrunTipi" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

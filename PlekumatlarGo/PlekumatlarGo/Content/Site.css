@@ -1,0 +1,243 @@
+﻿@font-face {
+    font-family: bizimFont;
+    src: url(/Content/Fonts/Quicksand/Quicksand-Medium.ttf);
+}
+.material-icons {
+    font-size: 50px !important;
+}
+
+.group {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.urun-container {
+    font-family:bizimFont;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.urunAciklama {
+    margin-top: 5px;
+    line-height: 27px;  
+}
+
+.urunDetay{
+    margin-top:100px;
+}
+.pricetag {
+     cursor:pointer;
+    margin-top: -30px;
+    display: block;
+    width: 130px;
+    height: 300px;
+    position: relative;
+    background-image: url(../Content/BannerImages/price-tag.svg);
+    background-size: 130px 430px;
+    text-indent: -9999px;
+}
+
+.pricetag2 {
+    cursor:pointer;
+    margin-top: -30px;
+    display: block;
+    width: 130px;
+    height: 310px;
+    position: relative;
+    background-image: url(../Content/BannerImages/price-tag.svg);
+    background-size: 130px 462px;
+    text-indent: -9999px;
+}
+
+.pricetag:hover {
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+.pricetag2:hover {
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+@keyframes example {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+body {  
+    font-family: bizimFont !important;
+}
+li {
+font-family:bizimFont;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+ 
+}
+footer {
+margin-top:50px;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+#ust-panel {
+    background: rgb(255, 63, 85);
+    height: 185px;
+    position: absolute;
+    left: 0px;  
+    z-index:1000;
+}
+#bannerResim1 {
+    vertical-align: bottom;
+    position: absolute;
+    bottom: -185px;
+    right: 0px;
+}
+#bannerResim2 {
+    vertical-align: top;
+    position: absolute;
+    right: 30%;
+}
+#bannerResim3 {
+    vertical-align: bottom;
+    position: absolute;
+    bottom: -185px;
+}
+#baslik {
+    position: absolute;
+    width: 100%;
+    font-size: 29px;
+    z-index: 1;
+    font-family: bizimFont;
+    top: 50px;
+    color:white;
+}
+#ic-sayfa-panel {
+    height:40px; 
+    padding:5px; 
+    position:absolute;
+    right:-15px;
+}
+    #ic-sayfa-panel > div {
+        width: 36px;
+        height: 36px;
+        float: left;
+        border-radius: 18px;
+        margin-left: 10px;
+        float: right;
+        background-color: #303f67;
+    }
+
+.shiny-btn
+{
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #7681b9;
+    transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55), background-position 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 500ms linear;
+    /* background-size: unset; */
+    /* background-position: -200px center; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../Content/Icons/account.png);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+#ic-sayfa-panel > div:nth-child(1) {
+    background-image: url(../Content/Icons/marker.png) !important;
+}
+#home {
+    background-image: url(../Content/Icons/home.png) !important;
+} 
+
+
+.shiny-btn:hover {
+    transform: scale(1.1);
+    background-position: -60px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.body-content > div:nth-child(2) > div  {
+    z-index: 10;
+    position: relative;
+    top: 105px; 
+}
+.urun {
+    border:1px solid rgba(0, 0, 0, 0.24);
+    height:300px; 
+    color:white;
+    background-color:#e2e2e2;
+    border-radius:5px;
+    margin-top:20px;
+}
+.urunCerceve {
+    width: 100%;
+    height: 80% !important; 
+    margin-top:12px;
+}
+.urunCerceve img {
+    margin:auto;
+}
+.urun:hover {
+    box-shadow: 0 5px 20px #808080;
+    cursor:pointer;
+    transition:500ms;
+}
+.urunCerceve span {
+    color:black;
+    font-family:bizimFont;
+}
+div.container.body-content > div:nth-child(2) > div > div > div {
+margin-top:30px;
+}
+#filtre {
+    margin-top: 108px;
+    border-radius: 15px;
+    background-color: #e2e2e2;
+    border: 1px solid #a2a2a2;
+    box-shadow: 0 1px 7px #808080;
+}
+    #filtre > div > div:nth-child(4) > div >  button {
+        /* margin-left: 9px; */
+        margin-top: -6px;
+        border-radius: 19px;
+        background-color: #e2e2e2;
+        border: none;
+        color: black;
+        box-shadow: none;
+        /* font-family: bizimFont; */
+        font-size: 15px;    
+    }
+    #filtre > div > div {
+        font-family: bizimFont;
+        text-align: center;
+        height: 47px;
+        padding-top: 15px;
+        cursor:pointer;
+    }
+.dropdown {
+    width:100%;
+}
+.dropdown-menu {
+    width:100%;
+}
+#like {
+    cursor: pointer;
+    width:40px;
+    height:40px; 
+    border-radius:20px;
+    background-image:url("../Content/Icons/unliked.png");
+    background-size:contain;
+}

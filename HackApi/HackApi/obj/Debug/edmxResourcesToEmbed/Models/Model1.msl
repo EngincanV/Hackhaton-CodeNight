@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HackhathonModelStoreContainer" CdmEntityContainer="HackhathonEntities1">
+    <EntitySetMapping Name="tbl_Begeniler">
+      <EntityTypeMapping TypeName="HackhathonModel.tbl_Begeniler">
+        <MappingFragment StoreEntitySet="tbl_Begeniler">
+          <ScalarProperty Name="begeniId" ColumnName="begeniId" />
+          <ScalarProperty Name="urunId" ColumnName="urunId" />
+          <ScalarProperty Name="uyeId" ColumnName="uyeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Mesaj">
+      <EntityTypeMapping TypeName="HackhathonModel.tbl_Mesaj">
+        <MappingFragment StoreEntitySet="tbl_Mesaj">
+          <ScalarProperty Name="mesajId" ColumnName="mesajId" />
+          <ScalarProperty Name="mesajTxt" ColumnName="mesajTxt" />
+          <ScalarProperty Name="aliciId" ColumnName="aliciId" />
+          <ScalarProperty Name="gondericiId" ColumnName="gondericiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UrunFotograflarİ">
+      <EntityTypeMapping TypeName="HackhathonModel.tbl_UrunFotograflarİ">
+        <MappingFragment StoreEntitySet="tbl_UrunFotograflarİ">
+          <ScalarProperty Name="fotografId" ColumnName="fotografId" />
+          <ScalarProperty Name="fotografAd" ColumnName="fotografAd" />
+          <ScalarProperty Name="urunId" ColumnName="urunId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Urunler">
+      <EntityTypeMapping TypeName="HackhathonModel.tbl_Urunler">
+        <MappingFragment StoreEntitySet="tbl_Urunler">
+          <ScalarProperty Name="urunId" ColumnName="urunId" />
+          <ScalarProperty Name="urunAd" ColumnName="urunAd" />
+          <ScalarProperty Name="tipId" ColumnName="tipId" />
+          <ScalarProperty Name="uyeId" ColumnName="uyeId" />
+          <ScalarProperty Name="urunDurumu" ColumnName="urunDurumu" />
+          <ScalarProperty Name="eklenmeTarihi" ColumnName="eklenmeTarihi" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="aktifMi" ColumnName="aktifMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UrunTipi">
+      <EntityTypeMapping TypeName="HackhathonModel.tbl_UrunTipi">
+        <MappingFragment StoreEntitySet="tbl_UrunTipi">
+          <ScalarProperty Name="tipId" ColumnName="tipId" />
+          <ScalarProperty Name="tipAdi" ColumnName="tipAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Uyeler">
+      <EntityTypeMapping TypeName="HackhathonModel.tbl_Uyeler">
+        <MappingFragment StoreEntitySet="tbl_Uyeler">
+          <ScalarProperty Name="uyeID" ColumnName="uyeID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="enlem" ColumnName="enlem" />
+          <ScalarProperty Name="boylam" ColumnName="boylam" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
